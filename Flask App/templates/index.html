@@ -4,11 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
     <title>Traffic AI</title>
 </head>
 
 <body>
-    <h1>Welcome to FlaskBlog</h1>
+    <div
+        style="background-color:rgb(255, 245, 212); height: 70px; display: flex; align-items: center; justify-content: center;">
+        <h1 style="border: 0px;">Traffic AI</h1>
+    </div>
+
+    <div align="container" style="display: flex;margin-right: 3%; margin-left: 3%; margin-top: 50px;">
+        <div class="embed-responsive-16by9" style="width: 60%; display:inline-block; align-items: center; justify-content: center;
+         /* background-color: aqua; */
+         ">
+            <h1>Live Feed</h1>
+            <video style="text-align: center;" width="700" height="500" controls>
+                <source src={{ url_for('static', filename="crash.mp4" ) }} type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="embed-responsive-16by9" style="display:inline-block; width: 30%; 
+        /* background-color: yellow; */
+        ">
+
+            <h1>Warnings</h1>
+            <p style="font-size: 20px; text-align: center; margin-top: 100px;">
+                <i>No warnings</i>
+            </p>
+        </div>
+
+    </div>
+
 </body>
 
 </html>
+
+<!-- {% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Traffic AI {% endblock %}</h1>
+{% endblock %} -->
