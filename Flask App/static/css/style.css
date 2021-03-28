@@ -1,6 +1,16 @@
 h1 {
-    border: 0px #eee solid;
-    color: black;
-    text-align: center;
-    padding: 10px;
+  border: 2px #eee solid;
+  color: brown;
+  text-align: center;
+  padding: 10px;
+}
+h2 {
+  border: 4px #eee solid;
+  color: brown;
+  text-align: center;
+  padding: 10px;
+}
+
+body {
+    padding-bottom: 20px;
 }
