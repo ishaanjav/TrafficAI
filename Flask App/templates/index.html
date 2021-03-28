@@ -11,34 +11,46 @@
 
 <body>
     <div
-        style="background-color:rgb(255, 245, 212); height: 70px; display: flex; align-items: center; justify-content: center;">
+        style="background-color:rgb(255, 245, 212); height: 70px; display: flex; align-items: center; justify-content: center; border-style: ridge; border-width: 10px 10px  /* background-color: yellow; */">
         <h1 style="border: 0px;">Traffic AI</h1>
     </div>
 
-    <div align="container" style="display: flex;margin-right: 3%; margin-left: 3%; margin-top: 50px;">
-        <div class="embed-responsive-16by9" style="width: 60%; display:inline-block; align-items: center; justify-content: center;
+    <div align="container" style="display: flex;margin-right: 3%; margin-left: 3%; margin-top: 50px; margin-bottom: 10px; border-style: ridge; border-width: 10px 10px; height: 1250px">
+        <div class="embed-responsive-16by9" style="width: 75%; display:inline-block; align-items: center; justify-content: center ;
          /* background-color: aqua; */
          ">
-            <h1>Live Feed</h1>
+            <h2>Live Feed: I-75 and Alm St, Dallas 75023</h2>
+            <video style="text-align: center;" width="700" height="500" controls>
+                <source src={{ url_for('static', filename="crash.mp4" ) }} type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br><h2>Live Feed: I-34 and K St, Dallas 75024</h2>
             <video style="text-align: center;" width="700" height="500" controls>
                 <source src={{ url_for('static', filename="crash.mp4" ) }} type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-        <div class="embed-responsive-16by9" style="display:inline-block; width: 30%; 
+        <div class="embed-responsive-16by9" style="display:inline-block; width: 40%; 
         /* background-color: yellow; */
         ">
-
-            <h1>Warnings</h1>
-            <p style="font-size: 20px; text-align: center; margin-top: 100px;">
+          
+            <h2>Warnings</h2>
+            <p style="font-size: 20px; text-align: center; margin-top: 150px;">
                 <i>No warnings</i>
             </p>
-            <p>
-				<button type = "submit" style = "height: 100px; font-size: 30px;" class = "btn btn-danger btn-block"> Alert Authorities</button>				
+			<p>
+				<button type = "submit" style = "height: 100px; font-size: 30px;" class = "btn btn-danger btn-block">Alert Authorities</button>				
+                    <p style="font-size: 20px; text-align: center; margin-top: 420px;">
+                <i>No warnings</i>
+            </p>
+
+        <button type = "submit" style = "height: 100px; font-size: 30px; margin-top: 0px" class = "btn btn-danger btn-block">Alert Authorities</button>	
 			</p>
         </div>
-
+        
     </div>
+	
+	
 
 </body>
 
