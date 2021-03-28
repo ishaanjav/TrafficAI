@@ -37,7 +37,7 @@
         ">
 
             <h2 style="text-align: center;">Warnings</h2>
-            <p style="font-size: 20px; text-align: center; margin-top: 150px;">
+            <p id="AAA" onclick="changeColor()" style="font-size: 20px; text-align: center; margin-top: 150px;">
                 <i>No warnings</i>
             </p>
             <p>
@@ -54,7 +54,34 @@
 
     </div>
 
-
+    <script>
+        document.body.onkeyup = function (e) {
+            console.log(e.keyCode);
+            if (e.keyCode == 72) { // h
+                changeColor();
+                console.log("TEST")
+            }
+            else if (e.keyCode == 74) { // j
+                reset();
+            }
+        }
+        function reset() {
+            document.getElementById("AAA").style.color = 'black';
+            document.getElementById("AAA").style.fontSize = '20px';
+            document.getElementById("AAA").innerHTML = '<i>No warning</i>';
+            console.log("Clicked")
+            return false;
+        }
+        function changeColor() {
+            document.getElementById("AAA").style.color = 'red';
+            document.getElementById("AAA").style.fontSize = '28px';
+            document.getElementById("AAA").innerHTML = 'CRASH DETECTED!';
+            var audio = new Audio('/static/siren.mp3');
+            audio.play();
+            setInterval(function () { audio.pause(); }, 1500);
+            return false;
+        }
+    </script>
 
 </body>
 
