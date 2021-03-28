@@ -16,7 +16,7 @@
     </div>
 
     <div align="container" style="display: flex;margin-right: 3%; margin-left: 3%; margin-top: 50px; margin-bottom: 10px; 
-        border: 3px solid rgb(255, 165, 165); border-radius: 10px; height: 1250px; padding: 20px;">
+        border: 6px solid rgb(255, 165, 165); border-radius: 10px; height: 1250px; padding: 20px;">
         <div class="embed-responsive-16by9" style="width: 75%; display:inline-block; align-items: center; justify-content: center ;
          /* background-color: aqua; */
          ">
@@ -28,7 +28,7 @@
             <br>
             <h2 style="margin-top: 40px;">Live Feed: I-34 and K St, Dallas 75024</h2>
             <video style="text-align: center; margin-top: -50px; " width="700" height="500" controls>
-                <source src={{ url_for('static', filename="crash.mp4" ) }} type="video/mp4">
+                <source src={{ url_for('static', filename="crash2.mp4" ) }} type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -43,7 +43,7 @@
             <p>
                 <button type="submit" style="height: 100px; font-size: 30px;" class="btn btn-danger btn-block">Alert
                     Authorities</button>
-            <p style="font-size: 20px; text-align: center; margin-top: 350px;">
+            <p id="BBB" style="font-size: 20px; text-align: center; margin-top: 350px;">
                 <i>No warnings</i>
             </p>
 
@@ -57,28 +57,34 @@
     <script>
         document.body.onkeyup = function (e) {
             console.log(e.keyCode);
+            var duration = 1500;
             if (e.keyCode == 72) { // h
-                changeColor();
-                console.log("TEST")
+                changeColor("AAA", duration);
             }
             else if (e.keyCode == 74) { // j
-                reset();
+                reset("AAA");
+            }
+            // 2nd crash
+            if (e.keyCode == 66) { // b
+                changeColor("BBB", duration);
+            } else if (e.keyCode == 78) { // n
+                reset("BBB");
             }
         }
-        function reset() {
-            document.getElementById("AAA").style.color = 'black';
-            document.getElementById("AAA").style.fontSize = '20px';
-            document.getElementById("AAA").innerHTML = '<i>No warning</i>';
+        function reset(id) {
+            document.getElementById(id).style.color = 'black';
+            document.getElementById(id).style.fontSize = '20px';
+            document.getElementById(id).innerHTML = '<i>No warning</i>';
             console.log("Clicked")
             return false;
         }
-        function changeColor() {
-            document.getElementById("AAA").style.color = 'red';
-            document.getElementById("AAA").style.fontSize = '28px';
-            document.getElementById("AAA").innerHTML = 'CRASH DETECTED!';
+        function changeColor(id, duration) {
+            document.getElementById(id).style.color = 'red';
+            document.getElementById(id).style.fontSize = '28px';
+            document.getElementById(id).innerHTML = 'CRASH DETECTED!';
             var audio = new Audio('/static/siren.mp3');
             audio.play();
-            setInterval(function () { audio.pause(); }, 1500);
+            setInterval(function () { audio.pause(); }, duration);
             return false;
         }
     </script>
