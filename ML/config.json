@@ -13,7 +13,7 @@
 		"batch_size": 32
 	},
 	"model": {
-		"loss": "mse",
+		"loss": "binary_crossentropy",
 		"optimizer": "adam",
 		"save_dir": "saved_models",
 		"layers": [
